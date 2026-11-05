@@ -2,7 +2,7 @@
 
 ## Test setup
 
-The updated source was checked in a local browser preview at `http://127.0.0.1:8765/`. The public site is `https://cjwentink2004.github.io/portfolio/`. The live site was inspected before the local changes and still showed the old project placeholders, so live deployment checks and final live Lighthouse scores are pending.
+The updated source was checked in a local browser preview at `http://127.0.0.1:8765/` and on the deployed public site, `https://cjwentink2004.github.io/portfolio/`. Lighthouse Accessibility scores below are mobile audits run with PageSpeed Insights/Lighthouse 13.6.0 on 2026-11-05.
 
 Every result below records the expected outcome, what was actually observed, and its status. A score is recorded only after an audit has completed.
 
@@ -40,18 +40,18 @@ Every result below records the expected outcome, what was actually observed, and
 | One main heading per page | Each page contains exactly one `<h1>`. | Browser checks found exactly one `<h1>` on each of the five pages. | PASS |
 | Semantic landmarks | Each page uses `header`, `nav`, `main`, and `footer`. | All four landmarks were present on all five pages. | PASS |
 | Stylesheet and inline styles | Each page uses one external stylesheet and no inline style attributes. | All five pages loaded one external stylesheet; none contained inline style attributes. | PASS |
-| Lighthouse Accessibility — Home | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
-| Lighthouse Accessibility — About | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
-| Lighthouse Accessibility — Projects | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
-| Lighthouse Accessibility — Skills | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
-| Lighthouse Accessibility — Contact | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
-| HTML validation | All five pages pass an HTML validator, or any findings are documented. | A W3C validator run has not yet been completed. | PENDING |
-| Live deployment | The public site serves the updated content and assets. | The live site was checked before the updates and still showed the old project placeholders; recheck after deployment. | PENDING |
+| Lighthouse Accessibility — Home | Mobile Accessibility score is at least 90/100. | PageSpeed Insights/Lighthouse 13.6.0 mobile audit: 100/100. | PASS |
+| Lighthouse Accessibility — About | Mobile Accessibility score is at least 90/100. | PageSpeed Insights/Lighthouse 13.6.0 mobile audit: 100/100. | PASS |
+| Lighthouse Accessibility — Projects | Mobile Accessibility score is at least 90/100. | PageSpeed Insights/Lighthouse 13.6.0 mobile audit: 100/100. | PASS |
+| Lighthouse Accessibility — Skills | Mobile Accessibility score is at least 90/100. | PageSpeed Insights/Lighthouse 13.6.0 mobile audit: 100/100. | PASS |
+| Lighthouse Accessibility — Contact | Mobile Accessibility score is at least 90/100. | PageSpeed Insights/Lighthouse 13.6.0 mobile audit: 100/100. | PASS |
+| HTML validation | All five pages pass an HTML validator, or any findings are documented. | W3C Nu validator returned no messages for all five deployed pages. | PASS |
+| Live deployment | The public site serves the updated content and assets. | Verified updated content on all five public pages; the project page has no placeholders or project-link labels. | PASS |
 
 ## Issues and fixes
 
 - Removed the project-page text that said photos/details would be added later, the “No project link provided” labels, and the note below the cards. The cards now omit project link lines because no destinations were supplied.
 - Rewrote the three project descriptions and made each image's alternative text more specific to the visible content.
 - Removed inline styles and moved the contact profile spacing into `style.css`.
-- A pre-fix mobile Lighthouse audit of the published home page scored 95/100 and flagged muted text on the pale section background for insufficient contrast. The shared muted color was darkened from `#65748a` to `#5d6b80`; audit the deployed pages to confirm the final scores.
+- A pre-fix mobile Lighthouse audit of the published home page scored 95/100 and flagged muted text on the pale section background for insufficient contrast. The shared muted color was darkened from `#65748a` to `#5d6b80`, giving a 5.04:1 contrast ratio against the pale section background. After deployment, all five mobile Accessibility audits scored 100/100.
 - Kept the contact form and its visible notice that it validates locally only and does not send messages. The email link remains available.
