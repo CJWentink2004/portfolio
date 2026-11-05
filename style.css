@@ -5,7 +5,7 @@
   --blue: #1768c4;
   --blue-light: #eaf2ff;
   --ink: #18263a;
-  --muted: #65748a;
+  --muted: #5d6b80;
   --line: #e4e9f0;
   --surface: #f5f7fa;
   --white: #fff;
@@ -76,16 +76,14 @@ main { min-height: 65vh; }
 .project-image { display: block; width: 100%; height: 220px; object-fit: cover; background: linear-gradient(135deg, #eaf2ff, #dce6f2); border-bottom: 1px solid var(--line); }
 .project-body { padding: 1.4rem; }
 .project-label { display: inline-block; color: var(--blue); text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; font-weight: 800; margin-bottom: .65rem; }
-.project-links { display: flex; gap: 1rem; margin-top: 1rem; font-weight: 700; font-size: .9rem; }
-.project-links span { color: var(--muted); font-weight: 500; }
 .skill-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
 .tag-list { display: flex; flex-wrap: wrap; gap: .55rem; padding: 0; margin: 1rem 0 0; list-style: none; }
 .tag-list li { color: #344962; background: #eef3f8; border: 1px solid #e0e8f0; border-radius: 99px; padding: .36rem .72rem; font-size: .89rem; }
-.placeholder-note { color: var(--muted); font-size: .9rem; border-left: 3px solid #8ab7f4; padding-left: .85rem; }
 .contact-panel { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 2rem; align-items: start; }
 .email-card { background: var(--navy); color: white; border-radius: var(--radius); padding: 2rem; }
 .email-card p { color: #d0dae8; }
 .email-card a { color: #9bc5ff; font-weight: 700; overflow-wrap: anywhere; }
+.profile-link { margin-top: 1.5rem; }
 .form-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem; }
 label { display: block; font-weight: 700; font-size: .9rem; margin: 0 0 .35rem; }
 input, textarea { width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; padding: .75rem .8rem; font: inherit; color: var(--ink); background: white; margin-bottom: 1rem; }

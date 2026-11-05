@@ -1,84 +1,57 @@
-﻿# Portfolio Website Testing
+# Portfolio Website Testing
 
-## 1. Overview
+## Test setup
 
-This document records the planned and completed testing for Cameron Wentink's personal portfolio website as part of the NJIT SDET 101 course. It describes the checks used to assess functionality, responsive layout, accessibility, HTML validity, and browser behavior. Results are marked only after they have been performed and verified.
+The updated source was checked in a local browser preview at `http://127.0.0.1:8765/`. The public site is `https://cjwentink2004.github.io/portfolio/`. The live site was inspected before the local changes and still showed the old project placeholders, so live deployment checks and final live Lighthouse scores are pending.
 
-**Live website:** [Portfolio Website](https://cjwentink2004.github.io/portfolio/)
+Every result below records the expected outcome, what was actually observed, and its status. A score is recorded only after an audit has completed.
 
-## 2. Functional Testing
+## Functional tests
 
-Functional testing checks that the five site pages open, navigation points to the intended pages, available project and contact links work, and JavaScript features behave as intended. The JavaScript currently provides a mobile navigation menu, including Escape-to-close behavior, and a demo contact form that validates fields but does not send messages.
-
-## 3. Responsive Design Testing
-
-The website is tested at desktop, tablet, and mobile viewport sizes. These checks assess whether the page layout adapts to different widths, navigation remains usable on small screens, and text, images, and other content fit within the viewport without unwanted horizontal scrolling.
-
-### Responsive Design Test Results
-
-Initial mobile testing was performed at a viewport width of 320px. Text was readable, images displayed correctly, and scrolling worked normally without unwanted horizontal scrolling. Navigation was also tested, and all five pages opened correctly. Additional testing at desktop and tablet viewport sizes remains pending.
-
-## 4. Accessibility Testing
-
-Accessibility testing checks that each page has an appropriate main heading, images have useful alternative text, and site controls can be reached and used with a keyboard. Text readability, color contrast, and accessible names for interactive elements should also be reviewed.
-
-Google Lighthouse accessibility audits are used to evaluate accessibility, with a target score of at least 90. Scores are recorded only after the relevant audit has been performed.
-
-## 5. HTML and Browser Testing
-
-Validate all five HTML files with the [W3C HTML Validator](https://validator.w3.org/). Check the browser console for JavaScript errors. Confirm that the live GitHub Pages site displays the latest committed changes.
-
-## 6. Test Results
-
-Initial testing has been completed for page navigation, mobile layout at 320px wide, and Lighthouse accessibility on the homepage. Other tests remain pending until they are performed and their results recorded.
-
-### Functional Tests
-
-| Test | Expected Result | Actual Result | Status |
+| Test case | Expected result | Actual result | Status |
 |---|---|---|---|
-| Home page (`index.html`) loads | Home page content and shared navigation display without errors. | Opened successfully during navigation testing. | PASS |
-| About page (`about.html`) loads | About page content and shared navigation display without errors. | Opened successfully during navigation testing. | PASS |
-| Projects page (`projects.html`) loads | Projects page and project images display without errors. | Opened successfully during navigation testing. | PASS |
-| Skills page (`skills.html`) loads | Skills page content and shared navigation display without errors. | Opened successfully during navigation testing. | PASS |
-| Contact page (`contact.html`) loads | Contact page and contact information display without errors. | Opened successfully during navigation testing. | PASS |
-| Navigation links | Each navigation link opens the matching Home, About, Projects, Skills, or Contact page. | Navigation between all five pages was tested successfully. | PASS |
-| Project links | Any supplied project links open their intended destinations. | Not tested. Current project cards display "No project link provided," so there are no project destination links to verify yet. | PENDING |
-| Contact links | Email link opens an email composition action; LinkedIn link opens the intended profile. | Not tested yet. | PENDING |
-| Mobile navigation menu | Menu button opens and closes navigation; Escape closes an open menu and returns focus to the button; choosing a link closes the menu. | Not tested yet. | PENDING |
-| Demo contact form | Empty or invalid fields show the appropriate validation message and focus the invalid field; valid fields show that the demo cannot send messages. | Not tested yet. | PENDING |
+| Home page (`index.html`) | Loads with the home content and shared navigation. | Loaded in the local browser preview. | PASS |
+| About page (`about.html`) | Loads with the about content and shared navigation. | Loaded in the local browser preview. | PASS |
+| Projects page (`projects.html`) | Loads with three project cards and their images. | Loaded in the local browser preview; all three project images loaded. | PASS |
+| Skills page (`skills.html`) | Loads with the skills content and shared navigation. | Loaded in the local browser preview. | PASS |
+| Contact page (`contact.html`) | Loads with contact details, email link, and clearly identified local-only form. | Loaded in the local browser preview; the email link and local-validation notice are present. | PASS |
+| Shared navigation | Each page provides relative links to Home, About, Projects, Skills, and Contact. | The five pages loaded and shared navigation was present on each; a mobile Home-to-Projects navigation was followed and closed the menu. | PASS |
+| Project content and links | Each project has a complete description; placeholder text and unsupported project links are absent. | Three descriptions explain the design/manufacturing work; project cards contain no placeholder text and no external links. | PASS |
+| Project image alternatives | Each project image has accurate, descriptive alternative text. | All three images loaded; their descriptions were checked against the images. | PASS |
+| Contact email link | The email link uses the intended `mailto:` address. | The page retained `mailto:cameronwentink@gmail.com`. | PASS |
+| Browser console and requests | No JavaScript errors, page errors, or failed local requests occur during testing. | No console errors, page errors, or failed requests occurred during the five-page responsive and interaction checks. | PASS |
 
-### Responsive Design Tests
+## Responsive and interaction tests
 
-| Test | Expected Result | Actual Result | Status |
+| Test case | Expected result | Actual result | Status |
 |---|---|---|---|
-| Desktop viewport | Layout uses available desktop width and content remains readable. | Not tested yet. | PENDING |
-| Tablet viewport | Layout adjusts to tablet width without clipped or overlapping content. | Not tested yet. | PENDING |
-| Mobile viewport | Layout adapts to a narrow screen and navigation remains usable. | Tested at 320px wide. Text was readable, images displayed correctly, and the layout remained usable. | PASS |
-| Horizontal overflow | Text, images, and other content fit within the viewport without unwanted horizontal scrolling at tested widths. | No unwanted horizontal scrolling was observed at 320px wide. | PASS |
+| Responsive layout | All five pages fit at mobile, tablet, and desktop viewport widths. | Checked each page at 320, 390, 768, 1024, and 1440 pixels wide. | PASS |
+| Horizontal overflow | No tested page has horizontal scrolling at the tested widths. | No horizontal overflow was detected on any page at any of the five widths. | PASS |
+| Mobile menu open and close | The menu button opens and closes the navigation and keeps `aria-expanded` in sync. | The menu opened, then Escape closed it and reset `aria-expanded`; selecting Projects also closed it. | PASS |
+| Escape focus return | Escape closes the open menu and returns focus to the menu button. | Verified that focus returned to the menu button after Escape. | PASS |
+| Contact form empty-name validation | Empty name shows a helpful message and focuses the name field. | The form displayed “Please enter your name.” and focused the name field. | PASS |
+| Contact form invalid-email validation | Invalid email shows a helpful message and focuses the email field. | The form displayed “Please enter a valid email address.” and focused the email field. | PASS |
+| Contact form valid local-only result | Valid fields show that the demo does not send messages. | The form displayed that it cannot send messages and directed visitors to the email link. | PASS |
 
-### Accessibility Tests
+## Accessibility and document tests
 
-| Test | Expected Result | Actual Result | Status |
+| Test case | Expected result | Actual result | Status |
 |---|---|---|---|
-| Main heading on each page | Each page has one appropriate `<h1>`. | Not tested yet. | PENDING |
-| Image alternative text | Informative images have accurate, useful `alt` text. | Not tested yet. | PENDING |
-| Keyboard navigation | Navigation and form controls can be reached and used by keyboard, with visible focus. | Not tested yet. | PENDING |
-| Text readability and color contrast | Text is readable and foreground/background contrast is sufficient. | Not fully tested. | PENDING |
-| Accessible names | Buttons, links, and other interactive controls have clear accessible names. | Not tested yet. | PENDING |
-| Google Lighthouse accessibility audit | Accessibility score is recorded; target is at least 90. | Desktop homepage accessibility score: 100/100. Mobile homepage accessibility score: 99/100. Target achieved on both audits. | PASS |
+| One main heading per page | Each page contains exactly one `<h1>`. | Browser checks found exactly one `<h1>` on each of the five pages. | PASS |
+| Semantic landmarks | Each page uses `header`, `nav`, `main`, and `footer`. | All four landmarks were present on all five pages. | PASS |
+| Stylesheet and inline styles | Each page uses one external stylesheet and no inline style attributes. | All five pages loaded one external stylesheet; none contained inline style attributes. | PASS |
+| Lighthouse Accessibility — Home | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
+| Lighthouse Accessibility — About | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
+| Lighthouse Accessibility — Projects | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
+| Lighthouse Accessibility — Skills | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
+| Lighthouse Accessibility — Contact | Mobile Accessibility score is at least 90/100. | Not yet audited against the updated live deployment. | PENDING |
+| HTML validation | All five pages pass an HTML validator, or any findings are documented. | A W3C validator run has not yet been completed. | PENDING |
+| Live deployment | The public site serves the updated content and assets. | The live site was checked before the updates and still showed the old project placeholders; recheck after deployment. | PENDING |
 
-*Note: Lighthouse scores above apply only to the homepage. The other four pages have not yet been audited.*
+## Issues and fixes
 
-### HTML and Browser Tests
-
-| Test | Expected Result | Actual Result | Status |
-|---|---|---|---|
-| W3C HTML validation | All five HTML files validate without markup errors, or reported issues are documented. | Not tested yet. | PENDING |
-| Browser console | No JavaScript errors occur while using the site features. | Not tested yet. | PENDING |
-| Live GitHub Pages update | The live site reflects the latest committed project changes. | Not yet verified against the latest committed changes. | PENDING |
-
-## 7. Issues and Fixes
-
-Initial testing found no issues during the reported mobile layout and navigation checks. The desktop homepage accessibility score was 100/100, and the mobile homepage accessibility score was 99/100.
-
-Additional testing remains in progress. Any issues discovered will be documented here along with their fixes.
+- Removed the project-page text that said photos/details would be added later, the “No project link provided” labels, and the note below the cards. The cards now omit project link lines because no destinations were supplied.
+- Rewrote the three project descriptions and made each image's alternative text more specific to the visible content.
+- Removed inline styles and moved the contact profile spacing into `style.css`.
+- A pre-fix mobile Lighthouse audit of the published home page scored 95/100 and flagged muted text on the pale section background for insufficient contrast. The shared muted color was darkened from `#65748a` to `#5d6b80`; audit the deployed pages to confirm the final scores.
+- Kept the contact form and its visible notice that it validates locally only and does not send messages. The email link remains available.

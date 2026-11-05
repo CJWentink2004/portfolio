@@ -1,27 +1,36 @@
 # AGENTS.md
 
-## Project overview
-This repository is a personal portfolio site. Keep the project focused, lightweight, and easy to maintain.
+## Site overview
+This is Cameron Wentink's personal engineering portfolio, built as a lightweight static site with five pages:
 
-## Working expectations
-- Prefer simple, readable code over fancy abstractions.
-- Keep the portfolio professional, accessible, and visually clean.
-- Favor semantic HTML, well-named classes, and maintainable CSS/JS.
-- Do not add unnecessary dependencies or frameworks unless the project clearly requires them.
-- Preserve a fast load time and mobile-friendly layout.
+- `index.html` — introduction and links to the portfolio sections
+- `about.html` — education, background, interests, and career direction
+- `projects.html` — custom jewelry, CNC workholding, and injection-mold projects
+- `skills.html` — CAD, manufacturing, measurement, and programming skills
+- `contact.html` — email and LinkedIn links plus a client-side validation demo
 
-## Repo conventions
-- Keep file structure logical and minimal.
-- Update the README when behavior, setup steps, or project structure materially changes.
-- Prefer small, targeted edits over broad rewrites.
-- Use consistent naming and formatting across files.
+## Design direction
+- Keep the existing clean, professional engineering-portfolio style.
+- Use the established dark navy (`#101d32`), blue (`#1768c4`), pale blue, white, and light gray palette.
+- Use the system font stack already in `style.css` (`Segoe UI`, Arial, sans-serif); do not add font downloads.
+- Preserve the responsive card layouts, clear spacing, and strong text contrast.
+
+## Implementation rules
+- Use plain semantic HTML, CSS, and vanilla JavaScript only. Do not add frameworks or unnecessary dependencies.
+- Keep `style.css` as the site's single external stylesheet. Do not add inline styles or inline scripts.
+- Use relative paths for internal page links, scripts, stylesheets, and local assets.
+- Keep one descriptive `<h1>` per page and use the shared `header`, `nav`, `main`, and `footer` landmarks.
+- Give every informative image accurate, descriptive alternative text.
+- Keep the mobile menu keyboard-accessible, including Escape-to-close and focus return to its button.
+- The contact form is a local validation demo only; keep that limitation clear and retain the email link.
+- Do not add project links unless a real destination is supplied; omit the link line when none exists.
 
 ## Validation
-- Before finishing work, verify the app/site still renders or builds without errors.
-- If the project is static, confirm the page loads locally in a browser or via a basic static preview.
-- If tooling is added later, use the repo's existing scripts and document any required commands.
+- Check all five pages for navigation, a single `<h1>`, semantic landmarks, and the single external stylesheet.
+- Test responsive layouts at mobile, tablet, and desktop widths; check for horizontal overflow and browser-console errors.
+- Test the mobile menu and contact form interactions in a browser.
+- Record expected result, actual result, and status for every test in `TESTING.md`. Record Lighthouse Accessibility scores page by page; target at least 90.
 
-## Notes for future agents
-- This repo may evolve from a simple static portfolio into a larger web app; keep the setup easy for contributors to understand.
-- When adding pages, sections, or assets, make sure they fit the portfolio's purpose and remain easy to navigate.
-- Avoid leaving broken links, unused files, or duplicated code.
+## Git workflow
+- After each completed task, create a commit with a clear, concise message, then push it to GitHub.
+- Do not include unrelated user changes in a commit.

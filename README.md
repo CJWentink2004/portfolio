@@ -29,10 +29,10 @@ Then visit `http://localhost:8000`. Stop the server with Ctrl+C.
 3. Select **Mobile** (and optionally repeat with **Desktop**) and the **Accessibility** category, then choose **Analyze page load**.
 4. Review the Accessibility audit details and fix any reported issues. Repeat on `about.html`, `projects.html`, `skills.html`, and `contact.html` as well as the home page.
 
-The target is an Accessibility score of at least 90. No Lighthouse score has been recorded for this project yet.
+The target is an Accessibility score of at least 90 on each page. Record each page's Lighthouse Accessibility result in `TESTING.md`; do not treat an unrun audit as a passing score.
 
 ## Project images and links
 
-The project entries summarize work Cameron has described. The supplied images are stored in `assets/` and loaded with relative paths. Further project details can be added when available. No external project or LinkedIn profile URLs were provided, so the site does not link to invented destinations. The LinkedIn name is shown as plain text until a profile URL is available.
+The project entries describe custom jewelry design, CNC workholding, and injection-mold machining. Images are stored in `assets/` and referenced with relative paths. No external project URLs are provided, so project cards omit link lines. The contact page retains the email address and LinkedIn profile link.
 
 The contact page publishes `cameronwentink@gmail.com`. Its demo form validates fields in the browser but does not send messages; visitors should use the email link.
