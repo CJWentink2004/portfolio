@@ -2,6 +2,8 @@
 
 A lightweight, responsive portfolio built with plain HTML, CSS, and JavaScript. It is ready to host from the root of a GitHub Pages repository.
 
+**Live site:** [https://cjwentink2004.github.io/portfolio/](https://cjwentink2004.github.io/portfolio/)
+
 ## Pages
 
 - `index.html` — Home
